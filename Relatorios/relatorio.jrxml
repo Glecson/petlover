@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorio" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="77b4754d-4ef3-447c-838a-adb872c61c71">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="15"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#191970">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFBFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#EFEFFF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="a03971b4-e18f-4d6f-9d5e-b3b188ae3b9c"/>
+	<queryString>
+		<![CDATA[SELECT status AS Status, tipoAtendimento AS 'Tipo de Atendimento', dataAtendimento AS Data,horarioInicio AS Horário, valorAtendimento AS Valor FROM atendimento where status = 'Executado']]>
+	</queryString>
+	<field name="Status" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Tipo de Atendimento" class="java.lang.String"/>
+	<field name="Data" class="java.sql.Date"/>
+	<field name="Horário" class="java.lang.String"/>
+	<field name="Valor" class="java.lang.Float"/>
+	<field name="field1" class="java.lang.String"/>
+	<variable name="Tipo de Atendimento_1" class="java.lang.Integer" resetType="Column" calculation="DistinctCount">
+		<variableExpression><![CDATA[$F{Tipo de Atendimento}]]></variableExpression>
+	</variable>
+	<variable name="variable1" class="java.lang.String"/>
+	<variable name="field1_1" class="java.lang.Integer" incrementType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{field1}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="263" y="59" width="292" height="20" uuid="1e88938a-fda8-47a6-9bc0-17c3ad24e824"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="16"/>
+				</textElement>
+				<text><![CDATA[Relatório de serviços já Executados]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<rectangle radius="12">
+				<reportElement x="0" y="0" width="555" height="41" backcolor="#6666FF" uuid="145eed21-462e-4b13-bb70-269a84de3613"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="25" y="11" width="100" height="20" forecolor="#FFFFFF" uuid="cba94e79-259e-44d8-9793-5527e7bc6ec8"/>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="225" y="11" width="100" height="20" forecolor="#FFFFFF" uuid="a887ddef-4eb0-4e4b-a733-7a45b61f82a9"/>
+				<text><![CDATA[Data]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="325" y="11" width="100" height="20" forecolor="#FFFFFF" uuid="72b8c0c7-5998-40ae-bb7e-b151b66858f6"/>
+				<text><![CDATA[Horário]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="425" y="11" width="100" height="20" forecolor="#FFFFFF" uuid="cd0ae317-ee30-49d6-a50f-cb8c15dde6e1"/>
+				<text><![CDATA[Valor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="125" y="11" width="100" height="20" forecolor="#FFFFFF" uuid="4eab5218-5645-472c-8872-900ab3d05d82"/>
+				<text><![CDATA[Tipo de Atendimento]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="49" splitType="Stretch">
+			<textField>
+				<reportElement x="25" y="0" width="100" height="20" uuid="39f8bb59-45e2-4dc0-b175-b398d8405140"/>
+				<textFieldExpression><![CDATA[$F{Status}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="125" y="0" width="100" height="20" uuid="c01b0901-1115-4e35-a3bc-d390f813b9f2"/>
+				<textFieldExpression><![CDATA[$F{Tipo de Atendimento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="225" y="0" width="100" height="20" uuid="62354549-027d-46b4-8633-60e6dc52dc21"/>
+				<textFieldExpression><![CDATA[$F{Data}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="325" y="0" width="100" height="20" uuid="9f57f7ee-30fa-40c9-8c29-d25fb31cf797"/>
+				<textFieldExpression><![CDATA[$F{Horário}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="425" y="1" width="100" height="20" uuid="46f43e21-28db-4ed6-bc87-c85d11fe131c"/>
+				<textElement>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Valor}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="22" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="458" y="10" width="100" height="20" uuid="8c2e1651-cf46-4057-856a-a5167cefcebe"/>
+				<textFieldExpression><![CDATA[$V{field1_1}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="0" y="22" width="100" height="20" uuid="876b1b9e-37bb-49e4-aeb3-5961e39a7428"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="435" y="22" width="80" height="20" uuid="9a0c01a8-6a09-4f8e-b9aa-8ef4eaca7053"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="515" y="22" width="40" height="20" uuid="4f960bca-92ba-4e80-b644-12e2c85a8eb2"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

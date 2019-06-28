@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Clientes" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0e8ce0df-f7f4-4e1a-aa0c-b6d271d2d4df">
+	<property name="ireport.callouts" value="##Wed Jun 05 00:55:49 BRT 2019"/>
+	<property name="ireport.zoom" value="1.1000000000000023"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT nome AS Nome,	telefone	AS Telefone, cpf AS CPF, logradouro	 AS Logradouro,numero AS Número,Cidade, email AS Email FROM cliente]]>
+	</queryString>
+	<field name="Nome" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Telefone" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CPF" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Logradouro" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Número" class="java.lang.String"/>
+	<field name="Cidade" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="263" y="59" width="292" height="20" uuid="dcab901d-6388-4012-8efb-d398c0e2c7e1"/>
+				<textElement>
+					<font fontName="DejaVu Sans" size="16"/>
+				</textElement>
+				<text><![CDATA[Relatório de Clientes cadastrados]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="54" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="42" splitType="Stretch">
+			<rectangle radius="12">
+				<reportElement x="0" y="0" width="555" height="41" backcolor="#6666FF" uuid="ea138387-8c85-4916-a6ae-93fcb4760dbb"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="39" y="11" width="100" height="20" forecolor="#FFFFFF" uuid="95d1b2c7-23cf-4f33-a8a2-041017d50eff"/>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="473" y="9" width="82" height="20" forecolor="#FFFFFF" uuid="20612dff-c6f6-4c21-828a-cbce99d31e0e"/>
+				<text><![CDATA[Cidade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="139" y="11" width="83" height="20" forecolor="#FFFFFF" uuid="6daa0389-562d-42f1-937a-f77e8fddb185"/>
+				<text><![CDATA[Telefone]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="373" y="9" width="100" height="20" forecolor="#FFFFFF" uuid="da98d064-dc61-40ed-8f66-992dbc714574"/>
+				<text><![CDATA[Logradouro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="222" y="9" width="92" height="20" forecolor="#FFFFFF" uuid="215c3687-cad8-4fcc-a723-a84bc9536622"/>
+				<text><![CDATA[CPF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="314" y="9" width="59" height="20" forecolor="#FFFFFF" uuid="f2cd243f-c891-4ff0-81ae-aa9b6b522e85"/>
+				<text><![CDATA[Nº]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="67" splitType="Stretch">
+			<textField>
+				<reportElement x="39" y="22" width="100" height="20" uuid="d6de2623-2fb1-426d-866c-08052c7503d2"/>
+				<textFieldExpression><![CDATA[$F{Nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="473" y="22" width="82" height="20" uuid="0b522b8b-9334-4377-9a57-89f9a4593bc4"/>
+				<textFieldExpression><![CDATA[$F{Cidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="314" y="22" width="59" height="20" uuid="a123afe3-52a7-44d8-9eff-dfceadf860f2"/>
+				<textFieldExpression><![CDATA[$F{Número}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="222" y="22" width="92" height="20" uuid="df27772a-aaa8-4324-a712-1cf612d6afd0"/>
+				<textFieldExpression><![CDATA[$F{CPF}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="139" y="22" width="83" height="20" uuid="e0080fbf-8086-431a-9090-920c39ea4615"/>
+				<textFieldExpression><![CDATA[$F{Telefone}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="375" y="22" width="100" height="20" uuid="45f1c1b9-eb3b-4276-b9b4-a05b3c6b5488"/>
+				<textFieldExpression><![CDATA[$F{Logradouro}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="168" y="20" width="100" height="20" uuid="12dd739d-7c57-41fb-8ad5-e817dfe80476"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="22" width="168" height="20" uuid="35ef2088-3efb-4ebe-af61-b6af8009d1c4"/>
+				<text><![CDATA[Clientes cadastrados até a data de:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="435" y="20" width="80" height="20" uuid="67d5b80f-45a2-4b61-82f9-6858fdb95789"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="515" y="20" width="40" height="20" uuid="465b371e-6cdb-4874-a203-2fca3d8520ce"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>
